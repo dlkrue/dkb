@@ -1,7 +1,5 @@
 bdir <- "C:/Users/dlkrue/Downloads/"
 
-
-
 ff <- list.files(bdir)
 ff2 <- ff[tools::file_ext(ff) == "csv"]
 
