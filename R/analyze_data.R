@@ -67,7 +67,7 @@ analyze_data <- function(inp, time_col = "week", pattern = "aldi|rewe|edeka", pa
   dd <- subset(inp, grepl(pattern = tolower(pattern), x = tolower(inp[, pattern_col])))
   cat(round(100 * nrow(dd) / nrow(inp), 1), " % of all movements match pattern\n")
 
-  dd2 <- summarise(group_by_(dd, pattern_col, time_col),
+  dd2 <- dplyr::summarise(dplyr::group_by_(dd, pattern_col, time_col),
                    Betrag = sum(Betrag, na.rm = T))
   dd2 <- as.data.frame(dd2)
   all_pat <- unlist(stringr::str_split(string = pattern, pattern = "\\|"))
@@ -87,7 +87,7 @@ analyze_data <- function(inp, time_col = "week", pattern = "aldi|rewe|edeka", pa
   dd3 <- reshape2::melt(data = dd2, id.vars = time_col, measure.vars = all_pat)
   names(dd3)[names(dd3) == time_col] <- "time"
 
-  dd4 <- as.data.frame(summarise(group_by(dd3, time, variable),
+  dd4 <- as.data.frame(dplyr::summarise(dplyr::group_by(dd3, time, variable),
                                  value = sum(value)
   ))
 
