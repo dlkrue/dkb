@@ -13,7 +13,7 @@
 import_data <- function(last_file = get_last_file()) {
   dd <- read.csv(last_file, skip = 8, sep = ";", stringsAsFactors = F)
   dim(dd)
-  names(dd) <- c("Buchungstag",	"Wertstellung", "Buchungstext",	"AuftraggeberBegünstigter",
+  names(dd) <- c("Buchungstag",	"Wertstellung", "Buchungstext",	"AuftraggeberBegunstigter",
                  "Verwendungszweck",	"Kontonummer",	"BLZ",
                  "Betrag",	"Gläubiger-ID",	"Mandatsreferenz", 	"Kundenreferenz",
                  "12")

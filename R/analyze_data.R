@@ -63,7 +63,7 @@
 #'   geom_smooth(method = "lm", lwd = .5, lty = "dashed") +
 #'   theme_dark() +
 #'   theme(axis.text.x = element_text(angle = 90, hjust = .5))
-analyze_data <- function(inp, time_col = "week", pattern = "aldi|rewe|edeka", pattern_col = "AuftraggeberBegünstigter") {
+analyze_data <- function(inp, time_col = "week", pattern = "aldi|rewe|edeka", pattern_col = "AuftraggeberBegunstigter") {
   dd <- subset(inp, grepl(pattern = tolower(pattern), x = tolower(inp[, pattern_col])))
   cat(round(100 * nrow(dd) / nrow(inp), 1), " % of all movements match pattern\n")
 
