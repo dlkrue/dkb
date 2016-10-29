@@ -61,7 +61,7 @@ get_last_downloaded_filename <- function(ff_dir = get_ff_profile_dir()) {
   alltables <- RMySQL::dbListTables(con)
   tab <- alltables[ii]
   # get the populationtable as a data.frame
-  p1 <- RMySQL::dbGetQuery(con, paste0('select * from ', tab))
+  p1 <- DBI::dbGetQuery(con, paste0('select * from ', tab))
   head(p1)
 
   last_file <- tail(grep("\\.csv", p1$content, value = T), 1)
