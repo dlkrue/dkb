@@ -56,6 +56,7 @@
 #' dd2 <- analyze_data(dd_,pattern = "FRIEDENSTRASSE", time_col = "month")
 #'
 #'
+#'
 #' ggplot(dd2, aes(x = time, y = value, group = variable, col = variable),
 #'        alpha = .6) +
 #'   geom_line(lwd = 1) +
