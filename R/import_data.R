@@ -56,7 +56,7 @@ get_ff_profile_dir <- function() {
 get_last_downloaded_filename <- function(ff_dir = get_ff_profile_dir()) {
 
   dbname <- paste0(ff_dir, "/places.sqlite")
-  con = dbConnect(RSQLite::SQLite(), dbname=dbname)
+  con = RMySQL::dbConnect(RSQLite::SQLite(), dbname=dbname)
   ii <- 2
   alltables <- dbListTables(con)
   tab <- alltables[ii]
